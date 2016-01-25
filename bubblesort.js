@@ -6,9 +6,9 @@ module.exports = class BubbleSort {
 	}
 
 	static sort(list) {
-		const o = list.slice();
+		let o = list.slice();
 		let swapped = false;
-		for (var i = 0; i < o.length - 1; i++) {
+		for (let i = 0; i < o.length - 1; i++) {
 			const el = o[i];
 			const next = o[i + 1];
 			if (BubbleSort.swap(el, next)) {
