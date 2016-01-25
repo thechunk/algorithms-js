@@ -5,24 +5,28 @@ module.exports = class BubbleSort {
 		return a > b;
 	}
 
-	static sort(list) {
-		let o = list.slice();
+	static bubblesort(list) {
 		let swapped = false;
-		for (let i = 0; i < o.length - 1; i++) {
-			const el = o[i];
-			const next = o[i + 1];
+		for (let i = 0; i < list.length - 1; i++) {
+			const el = list[i];
+			const next = list[i + 1];
 			if (BubbleSort.swap(el, next)) {
-				o[i] = next;
-				o[i + 1] = el;
+				list[i] = next;
+				list[i + 1] = el;
 				swapped = true;
-				console.log('swap', o);
 			}
 		}
 
 		if (swapped) {
-			return BubbleSort.sort(o);
+			return false;
 		}
-		console.log('done', o);
-		return o;
+		return list;
+	}
+
+	static run(list) {
+		// const sorted = BubbleSort.bubblesort(list);
+		let sorted;
+		while (!(sorted = BubbleSort.bubblesort(list))) {};
+		return sorted;
 	}
 };

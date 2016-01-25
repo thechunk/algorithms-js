@@ -2,6 +2,7 @@
 
 const BubbleSort = require('./bubblesort');
 const QuickSort = require('./quicksort');
+const InsertionSort = require('./insertionsort');
 
 function randomList(size) {
 	let arr = [];
@@ -11,30 +12,45 @@ function randomList(size) {
 	return arr;
 }
 
-function testSorted(arr) {
-	for (let i = 0; i < arr.length - 1; i++) {
-		if (arr[i + 1] < arr[i]) {
-			return false;
-		}
-	}
-	return true;
+function arrayEquals(a, b) {
+	return JSON.stringify(a) === JSON.stringify(b);
 }
 
 function main() {
-	const unsorted = randomList(20);
-	console.info('init', unsorted);
-	console.time('BubbleSort');
-	const bubbleSorted = BubbleSort.sort(unsorted);
-	console.timeEnd('BubbleSort');
-	console.info('pass', testSorted(bubbleSorted));
+	const count = 10000;
+	const unsorted = randomList(count);
+
+	console.info('elem', count);
+
+	console.time('Native');
+	const sorted = unsorted.slice().sort((a, b) => {
+		return a - b;
+	});
+	console.timeEnd('Native');
 
 	console.log('--');
 
-	console.info('init', unsorted);
+	let bubbleSorted = unsorted.slice();
+	console.time('BubbleSort');
+	BubbleSort.run(bubbleSorted);
+	console.timeEnd('BubbleSort');
+	console.info('pass', arrayEquals(sorted, bubbleSorted));
+
+	console.log('--');
+
+	let quickSorted = unsorted.slice();
 	console.time('QuickSort');
-	const quickSorted = QuickSort.sort(unsorted);
+	QuickSort.run(quickSorted);
 	console.timeEnd('QuickSort');
-	console.info('pass', testSorted(quickSorted));
+	console.info('pass', arrayEquals(sorted, quickSorted));
+
+	console.log('--');
+
+	let insertionSorted = unsorted.slice();
+	console.time('InsertionSort');
+	InsertionSort.run(insertionSorted);
+	console.timeEnd('InsertionSort');
+	console.info('pass', arrayEquals(sorted, insertionSorted));
 }
 
 main();
