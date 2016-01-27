@@ -3,7 +3,10 @@
 const BubbleSort = require('./bubblesort');
 const QuickSort = require('./quicksort');
 const InsertionSort = require('./insertionsort');
+
 const HashTable = require('./hashtable');
+
+const BinarySearch = require('./binarysearch');
 
 function randomList(size) {
 	let arr = [];
@@ -18,7 +21,7 @@ function arrayEquals(a, b) {
 }
 
 function main() {
-	const count = 10000;
+	const count = 100;
 	const unsorted = randomList(count);
 
 	console.info('elem', count);
@@ -64,6 +67,16 @@ function main() {
 	console.log(hashtable.get(5));
 	console.log(hashtable.get(6));
 	hashtable.printDescription();
+
+	console.log('--');
+
+	let binarysearch = new BinarySearch(sorted);
+	console.log(sorted);
+	const resIdx = binarysearch.run(5);
+	const actualIdx = sorted.indexOf(5);
+
+	console.log('find', resIdx);
+	console.log('pass', actualIdx === resIdx);
 }
 
 main();
