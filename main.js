@@ -3,6 +3,7 @@
 const BubbleSort = require('./bubblesort');
 const QuickSort = require('./quicksort');
 const InsertionSort = require('./insertionsort');
+const HashTable = require('./hashtable');
 
 function randomList(size) {
 	let arr = [];
@@ -51,6 +52,18 @@ function main() {
 	InsertionSort.run(insertionSorted);
 	console.timeEnd('InsertionSort');
 	console.info('pass', arrayEquals(sorted, insertionSorted));
+
+	console.log('--');
+
+	let hashtable = new HashTable();
+	hashtable.put(1, '5');
+	hashtable.put(5, 'hello');
+	hashtable.put(6, 'world');
+	hashtable.put(20, 'derp');
+	hashtable.put('foo', 'bar');
+	console.log(hashtable.get(5));
+	console.log(hashtable.get(6));
+	hashtable.printDescription();
 }
 
 main();
