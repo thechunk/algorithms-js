@@ -20,7 +20,6 @@ function BinarySearchTree() {
 BinarySearchTree.prototype = {
 	insert: function(root, v) {
 		const child = new Node(v);
-		debugger;
 		if (root === null) {
 			// Case: no nodes
 			return (this.root = child);
@@ -35,6 +34,26 @@ BinarySearchTree.prototype = {
 					return (root.r = child);
 				}
 				this.insert(root.r, v);
+			}
+		}
+	},
+
+	dfSearch: function(root, n) {
+		let visited = [];
+		visited.push(n);
+		console.log('visit', n.k);
+
+		// if (root === v) {
+		// 	return root;
+		// }
+		if (n.l) {
+			if (!(n.l in visited)) {
+				this.dfSearch(root, n.l);
+			}
+		}
+		if (n.r) {
+			if (!(n.r in visited)) {
+				this.dfSearch(root, n.r);
 			}
 		}
 	},
