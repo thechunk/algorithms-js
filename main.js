@@ -5,6 +5,7 @@ const QuickSort = require('./quicksort');
 const InsertionSort = require('./insertionsort');
 
 const HashTable = require('./hashtable');
+const BinarySearchTree = require('./binarysearchtree');
 
 const BinarySearch = require('./binarysearch');
 
@@ -72,9 +73,28 @@ function main() {
 
 	console.log('--');
 
+	let bst = new BinarySearchTree();
+	let root = bst.insert(null, 1);
+	bst.insert(root, 5);
+	bst.insert(root, 2);
+	bst.insert(root, 0);
+	bst.printDescription();
+
+	console.log('--');
+
+	console.time('ForSearch');
+	for (let i = 0; i < sorted.length; i++) {
+		if (sorted[i] === 50) break;
+	}
+	console.timeEnd('ForSearch');
+
+	console.log('--');
+
 	let binarysearch = new BinarySearch(sorted);
-	const resIdx = binarysearch.run(5);
-	const actualIdx = sorted.indexOf(5);
+	console.time('BinarySearch');
+	const resIdx = binarysearch.run(50);
+	console.timeEnd('BinarySearch');
+	const actualIdx = sorted.indexOf(50);
 
 	console.log('found ', resIdx);
 	console.log('native', actualIdx);
