@@ -8,6 +8,8 @@ const HashTable = require('./hashtable');
 
 const BinarySearch = require('./binarysearch');
 
+const Circle = require('./circle');
+
 function randomList(size) {
 	let arr = [];
 	for (let i = 0; i < size; i++) {
@@ -79,6 +81,9 @@ function main() {
 	console.log('pass', actualIdx === resIdx);
 
 	console.log('--');
+
+	const circle = new Circle(5);
+	circle.draw();
 }
 
 main();
