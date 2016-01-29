@@ -1,5 +1,7 @@
 'use strict';
 
+const assert = require('assert');
+
 function BinarySearch(data) {
 	// Assume sorted dataset
 	this.data = data;
@@ -7,6 +9,11 @@ function BinarySearch(data) {
 
 BinarySearch.prototype = {
 	search: function(haystack, needle, lo, hi) {
+		assert(haystack instanceof Array);
+		assert(!isNaN(needle = Number(needle)));
+		assert(!isNaN(lo = Number(lo)));
+		assert(!isNaN(hi = Number(hi)));
+
 		const hayLen = hi - lo;
 		const midIdx = lo + Math.floor(hayLen / 2);
 		const midVal = haystack[midIdx];
@@ -26,6 +33,7 @@ BinarySearch.prototype = {
 	},
 
 	run: function(needle) {
+		assert(!isNaN(needle = Number(needle)));
 		return this.search(this.data, needle, 0, this.data.length);
 	}
 };
