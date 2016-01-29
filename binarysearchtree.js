@@ -43,9 +43,6 @@ BinarySearchTree.prototype = {
 		visited.push(n);
 		console.log('visit', n.k);
 
-		// if (root === v) {
-		// 	return root;
-		// }
 		if (n.l) {
 			if (!(n.l in visited)) {
 				this.dfSearch(root, n.l);

@@ -75,12 +75,15 @@ function main() {
 
 	let bst = new BinarySearchTree();
 	let root = bst.insert(null, 1);
+	bst.insert(root, 20);
+	bst.insert(root, 15);
+	bst.insert(root, 16);
+	bst.insert(root, 7);
 	bst.insert(root, 5);
+	bst.insert(root, 3);
 	bst.insert(root, 2);
-	bst.insert(root, 4);
 	bst.insert(root, 0);
 	bst.insert(root, -1);
-	bst.insert(root, 3);
 	bst.printDescription();
 	bst.dfSearch(root, root);
 
