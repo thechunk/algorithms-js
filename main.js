@@ -21,7 +21,7 @@ function arrayEquals(a, b) {
 }
 
 function main() {
-	const count = 100;
+	const count = 10000;
 	const unsorted = randomList(count);
 
 	console.info('elem', count);
@@ -66,17 +66,19 @@ function main() {
 	hashtable.put('foo', 'bar');
 	console.log(hashtable.get(5));
 	console.log(hashtable.get(6));
-	hashtable.printDescription();
+	// hashtable.printDescription();
 
 	console.log('--');
 
 	let binarysearch = new BinarySearch(sorted);
-	console.log(sorted);
 	const resIdx = binarysearch.run(5);
 	const actualIdx = sorted.indexOf(5);
 
-	console.log('find', resIdx);
+	console.log('found ', resIdx);
+	console.log('native', actualIdx);
 	console.log('pass', actualIdx === resIdx);
+
+	console.log('--');
 }
 
 main();

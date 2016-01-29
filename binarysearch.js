@@ -15,13 +15,13 @@ BinarySearch.prototype = {
 			return midIdx;
 		}
 		if (hayLen <= 1) {
-			return null;
+			return -1;
 		}
 
-		if (needle < midVal) {
+		if (needle <= midVal) {
 			return this.search(haystack, needle, 0, midIdx);
 		} else {
-			return this.search(haystack, needle, midIdx, haystack.length);
+			return this.search(haystack, needle, midIdx, hi);
 		}
 	},
 
