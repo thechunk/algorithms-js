@@ -1,8 +1,15 @@
 'use strict';
 
 module.exports = class BubbleSort {
-	static swap(a, b) {
+	static shouldSwap(a, b) {
 		return a > b;
+	}
+
+	static swap(list, i) {
+		const el = list[i];
+		const next = list[i + 1];
+		list[i] = next;
+		list[i + 1] = el;
 	}
 
 	static bubblesort(list) {
@@ -10,9 +17,8 @@ module.exports = class BubbleSort {
 		for (let i = 0; i < list.length - 1; i++) {
 			const el = list[i];
 			const next = list[i + 1];
-			if (BubbleSort.swap(el, next)) {
-				list[i] = next;
-				list[i + 1] = el;
+			if (BubbleSort.shouldSwap(el, next)) {
+				BubbleSort.swap(list, i);
 				swapped = true;
 			}
 		}
