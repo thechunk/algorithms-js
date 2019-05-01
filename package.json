@@ -1,5 +1,5 @@
 {
-  "name": "js-sort",
+  "name": "algorithms-js",
   "version": "1.0.0",
   "description": "",
   "main": "main.js",
@@ -9,11 +9,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@bitbucket.org/thechunk/js-sort.git"
+    "url": "git+ssh://git@github.com/thechunk/algorithms-js.git"
   },
   "author": "",
   "license": "ISC",
-  "homepage": "https://bitbucket.org/thechunk/js-sort#readme",
+  "homepage": "https://github.com/thechunk/algorithms-js",
   "devDependencies": {
     "chai": "^3.5.0",
     "mocha": "^2.4.5"
